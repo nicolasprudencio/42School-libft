@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_dlnew.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 18:19:31 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/09/15 07:35:51 by nprudenc         ###   ########.fr       */
+/*   Created: 2023/10/07 19:04:07 by nicolas           #+#    #+#             */
+/*   Updated: 2023/11/01 16:44:01 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+t_dlist	*ft_dlnew(int value)
 {
-	if (!s)
+	t_dlist	*node;
+
+	node = (t_dlist *)ft_calloc(1, sizeof(t_dlist));
+	if (!node)
 		return (NULL);
-	while (*s)
-	{	
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (!(unsigned char)c)
-		return ((char *)s);
-	return (NULL);
+	node->value = value;
+	node->prev = NULL;
+	node->next = NULL;
+	return (node);
 }

@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstfindhighest.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 12:17:03 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/05/23 12:58:45 by nprudenc         ###   ########.fr       */
+/*   Created: 2023/10/26 18:09:31 by nprudenc          #+#    #+#             */
+/*   Updated: 2023/11/01 16:43:40 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_lstfindhighest(t_dlist *head)
 {
-	t_list	*new_lst;
-	t_list	*lst_head;
+	t_dlist	*temp;
+	int		highest;
 
-	if (!lst || !f || !del)
-		return (NULL);
-	new_lst = ft_lstnew(f(lst->content));
-	lst_head = new_lst;
-	lst = lst->next;
-	while (lst)
-	{	
-		new_lst->next = ft_lstnew(f(lst->content));
-		new_lst = new_lst->next;
-		if (!new_lst)
-		{
-			del(new_lst);
-			free(new_lst);
-		}
-		lst = lst->next;
+	temp = head;
+	highest = head->value;
+	while (temp)
+	{
+		if (highest < temp->value)
+			highest = temp->value;
+		temp = temp->next;
 	}
-	return (lst_head);
+	return (highest);
 }

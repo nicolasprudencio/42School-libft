@@ -6,7 +6,7 @@
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 21:03:06 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/05/20 17:47:04 by nprudenc         ###   ########.fr       */
+/*   Updated: 2023/08/11 18:02:14 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-// int	main(void)
-// {
-// 	printf("ft: %s", ft_substr("str", 42, 42000000));
-// 	return (0);
-// }

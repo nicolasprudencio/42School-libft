@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_conv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 18:19:31 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/09/15 07:35:51 by nprudenc         ###   ########.fr       */
+/*   Created: 2023/10/26 18:58:36 by nprudenc          #+#    #+#             */
+/*   Updated: 2023/10/26 18:59:28 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lst_has(t_dlist	*head, int value)
 {
-	if (!s)
-		return (NULL);
-	while (*s)
-	{	
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+	t_dlist	*temp;
+
+	temp = head;
+	while (temp)
+	{
+		if (value == temp->value)
+			return (1);
+		temp = temp->next;
 	}
-	if (!(unsigned char)c)
-		return ((char *)s);
-	return (NULL);
+	return (0);
 }

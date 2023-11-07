@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_gridlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 18:19:31 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/09/15 07:35:51 by nprudenc         ###   ########.fr       */
+/*   Created: 2023/09/17 22:26:31 by nprudenc          #+#    #+#             */
+/*   Updated: 2023/09/18 14:21:30 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+int	ft_gridlen(char **grid)
+{	
+	int	i;
 
-char	*ft_strchr(const char *s, int c)
-{
-	if (!s)
-		return (NULL);
-	while (*s)
-	{	
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (!(unsigned char)c)
-		return ((char *)s);
-	return (NULL);
+	if (!grid)
+		return (0);
+	i = -1;
+	while (grid[++i])
+		;
+	return (i);
 }
+// change the name to gridlen

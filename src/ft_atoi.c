@@ -6,7 +6,7 @@
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:33:30 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/05/18 20:06:44 by nprudenc         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:24:20 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	is_neg = 0;
 	result = 0;
+	if (!nptr)
+		return (0);
 	while (nptr[i] && (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13)))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')

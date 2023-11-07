@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_isnbr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 14:14:22 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/05/22 14:26:15 by nprudenc         ###   ########.fr       */
+/*   Created: 2023/10/26 13:07:26 by nprudenc          #+#    #+#             */
+/*   Updated: 2023/10/26 15:23:45 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_isnbr(char	*nptr)
 {
-	new->next = *lst;
-	*lst = new;
+	int	i;
+
+	i = 0;
+	if (ft_atol(nptr) > 2147483647 || ft_atol(nptr) < -2147483648)
+		return (0);
+	if ((nptr[0] == '-' && nptr[1]) || (nptr[0] == '+' && nptr[1]))
+		i++;
+	while (nptr[i])
+		if (nptr[i] == '-' || nptr[i] == '+' || !ft_isdigit(nptr[i++]))
+			return (0);
+	return (1);
 }

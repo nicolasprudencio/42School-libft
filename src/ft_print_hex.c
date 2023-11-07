@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 18:19:31 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/09/15 07:35:51 by nprudenc         ###   ########.fr       */
+/*   Created: 2023/06/24 13:19:48 by nprudenc          #+#    #+#             */
+/*   Updated: 2023/10/23 22:11:13 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_print_hex(unsigned int nb, char x)
 {
-	if (!s)
-		return (NULL);
-	while (*s)
-	{	
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (!(unsigned char)c)
-		return ((char *)s);
-	return (NULL);
+	int	letter_counter;
+
+	letter_counter = 0;
+	if (nb / 16 > 0)
+		letter_counter += ft_print_hex(nb / 16, x);
+	nb = nb % 16;
+	if (x == 'X')
+		letter_counter += ft_putchar("0123456789ABCDEF"[nb % 16]);
+	else
+		letter_counter += ft_putchar("0123456789abcdef"[nb % 16]);
+	return (letter_counter);
 }

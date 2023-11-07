@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstfindlowest.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 18:19:31 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/09/15 07:35:51 by nprudenc         ###   ########.fr       */
+/*   Created: 2023/10/26 18:15:57 by nprudenc          #+#    #+#             */
+/*   Updated: 2023/11/01 16:44:05 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lstfindlowest(t_dlist *head)
 {
-	if (!s)
-		return (NULL);
-	while (*s)
+	t_dlist	*temp;
+	int		lowest;
+
+	temp = head;
+	lowest = head->value;
+	while (temp)
 	{	
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		if (lowest > temp->value)
+			lowest = temp->value;
+		temp = temp->next;
 	}
-	if (!(unsigned char)c)
-		return ((char *)s);
-	return (NULL);
+	return (lowest);
 }
