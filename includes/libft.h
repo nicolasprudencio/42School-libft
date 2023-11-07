@@ -6,7 +6,7 @@
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:14:18 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/11/01 15:53:09 by nprudenc         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:50:40 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ typedef struct s_dlist
 	struct s_dlist	*prev;
 	struct s_dlist	*next;
 }				t_dlist;
+
+typedef struct s_stack
+{	
+	char	name;
+	t_dlist	*top;
+	t_dlist	*btm;
+}				t_stack;
 
 void		ft_bzero(void *s, size_t n);
 int			ft_isalnum(int c);

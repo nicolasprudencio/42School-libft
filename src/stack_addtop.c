@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gridlen.c                                       :+:      :+:    :+:   */
+/*   stack_addtop.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprudenc <nprudenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 22:26:31 by nprudenc          #+#    #+#             */
-/*   Updated: 2023/11/07 17:51:59 by nprudenc         ###   ########.fr       */
+/*   Created: 2023/10/07 19:13:59 by nicolas           #+#    #+#             */
+/*   Updated: 2023/11/07 17:49:25 by nprudenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_gridlen(char **grid)
-{	
-	int	i;
+#include "libft.h"
 
-	if (!grid)
-		return (0);
-	i = -1;
-	while (grid[++i])
-		;
-	return (i);
+void	stack_addtop(t_stack **stack, t_dlist *node)
+{
+	if (!node || !stack)
+	{
+		ft_printf("Error\n");
+		return ;
+	}
+	if ((*stack)->top)
+	{
+		(*stack)->top->prev = node;
+		node->next = (*stack)->top;
+		(*stack)->top = node;
+	}
+	else
+	{
+		(*stack)->top = node;
+		(*stack)->btm = node;
+	}
 }
